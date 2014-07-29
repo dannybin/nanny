@@ -1,0 +1,106 @@
+#accordion .glyphicon { margin-right:10px; }
+.panel-collapse>.list-group .list-group-item:first-child {border-top-right-radius: 0;border-top-left-radius: 0;}
+.panel-collapse>.list-group .list-group-item {border-width: 1px 0;}
+.panel-collapse>.list-group {margin-bottom: 0;}
+.panel-collapse .list-group-item {border-radius:0;}
+
+.panel-collapse .list-group .list-group {margin: 0;margin-top: 10px;}
+.panel-collapse .list-group-item li.list-group-item {margin: 0 -15px;border-top: 1px solid #ddd;border-bottom: 0;padding-left: 30px;}
+.panel-collapse .list-group-item li.list-group-item:last-child {padding-bottom: 0;}
+
+.panel-collapse div.list-group div.list-group{margin: 0;}
+.panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd;border-bottom: 0;padding-left: 30px;}
+
+
+.widget  { margin-top:30px; }
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline;}
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 6px;
+  font-size: 14px;
+  line-height: 1.33;
+  border-radius: 15px;
+}
+
+.headerwrap{
+	width: 100%;
+	background:  #E7D7DD no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 800px;
+	margin-top: -60px;
+	padding-top: 160px;
+}
+
+
+.image-main{
+  text-align: center;
+	margin-bottom: 100px;
+	margin-left: 10%;
+}
+.slogan{
+	margin-top: -30px;
+	margin-bottom: 30px;
+}
+.slogan span{
+font-family: Georgia, serif;
+text-align: center;
+color:#6F5B15;
+font-size: 36px;
+}
+.date-input{
+	padding-top: 10px;
+
+}
+.date-input input{
+	margin-top: 20px;
+	text-align: center;
+	width:100%;
+}
+.panel-title a {font-size: 24px; }
+
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; width:17em;}
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 50%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+.setup-panel{
+	margin-top:-100px;
+	background: #E7D7DD;
+	border-color:#D8BD9A;
+	border-width:2px;
+}
+.starttime{
+	margin-left: -40px;
+	margin-top: 40px;
+}
+.endtime{
+	margin-left: -40px;
+	margin-top:30%;
+}
+.signup-location{
+	margin-top:30%;
+	width: 80%;
+}

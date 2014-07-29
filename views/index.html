@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nanny Boo Boo</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+
+    <link href="css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/jquery-timepicker-addon.js"></script>
+    <!-- Date Picker -->
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+      });
+    </script>
+
+    <!-- Time Picker -->
+    <script>
+      $(function(){
+        $('#startTime').timepicker({
+          hourGrid: 4,
+          minuteGrid: 10,
+          timeFormat: "hh:mm tt"
+   
+        });
+      });
+
+      $(function(){
+        $('#endTime').timepicker({
+          hourGrid: 4,
+          minuteGrid: 10,
+          timeFormat: "hh:mm tt"
+        });
+      });
+    </script>
+
+    <!-- Signup page flow -->
+    <script>
+    $(document).ready(function() {
+    
+      var active_tab_selector = $('.setup-panel > li.active > a').attr('href');
+      content = $('.setup-content');
+
+      content.hide();
+      $(active_tab_selector).show();
+      
+      $('ul.setup-panel > li > a').on('click', function(e)
+      {
+          e.preventDefault();
+          if (!$(this).parents('li').hasClass('disabled')) {
+              $('ul.setup-panel > li.active').removeClass('active');
+              $(this).parents('li').addClass('active');
+              content.hide();
+              $($('ul.setup-panel > li.active > a').attr('href')).show();
+          }
+      });
+    
+    $('#activate-step-2').on('click', function(e) {
+        e.preventDefault();
+        $('ul.setup-panel > li:eq(1)').removeClass('disabled');
+        $('ul.setup-panel > li.active').removeClass('active');
+        $('ul.setup-panel > li:eq(1)').addClass('active');
+        var target = $('ul.setup-panel > li.active > a').attr('href');
+        content.hide();
+        $(target).show();
+      })
+    
+    $('#activate-step-3').on('click', function(e) {
+        e.preventDefault();
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel > li.active').removeClass('active');
+        $('ul.setup-panel > li:eq(2)').addClass('active');
+        var target = $('ul.setup-panel > li.active > a').attr('href');
+        content.hide();
+        $(target).show();
+      })  
+    });
+    
+    $(function(){
+      $(".dropdown-menu li a").click(function(){
+        var selText = $(this).text();
+        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+      });
+     });
+
+    </script>
+
+    </head>
+  <body>
+
+	<div class="navbar navbar-inverse" role="navigation">
+
+    <div class="container-fluid">
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="navbar-brand navbar-left" href="#" name="top" style="color:#ADE293">Nanny Boo Boo</a>
+      
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Top nav bar options -->
+            <li><a href='#'>Log In</a></li> 
+
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+  <div class="headerwrap">  
+    <!-- User Input -->
+    <div class="container">
+      <div class="row form-group">
+        <div class="col-xs-12 col-md-12">
+            <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                <li class="active"><a href="#step-1">
+                    <h4 class="list-group-item-heading">Step 1</h4>
+                    <p class="list-group-item-text">Pick A Date</p>
+                </a></li>
+                <li class="disabled"><a href="#step-2">
+                    <h4 class="list-group-item-heading">Step 2</h4>
+                    <p class="list-group-item-text">Enter Location</p>
+                </a></li>
+                <li class="disabled"><a href="#step-3">
+                    <h4 class="list-group-item-heading">Step 3</h4>
+                    <p class="list-group-item-text">Pick Your Sitter</p>
+                </a></li> 
+                <li class="disabled"><a href="#step-4">
+                    <h4 class="list-group-item-heading">Step 4</h4>
+                    <p class="list-group-item-text">Peace Of Mind</p>
+                </a></li> 
+            </ul>
+        </div>
+      </div>
+      <div class="slogan text-center">
+        <span>Finding a Babysitter Has Never Been Easier And Safer</span>
+      </div> 
+      <div class="row setup-content" id="step-1">
+        <div class="col-xs-12 col-md-12">
+            <div class="col-md-10 col-md-offset-1 well text-center">
+              <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-7">
+                  <h4>Choose A Date</h4>
+                  <div class="form-group">
+                    <div class="date-input">
+                      <div id="datepicker"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5">
+
+                    <h4>Choose Time Frame</h4>
+                    <div class="starttime">
+                      <span>Start Time:</span>
+                      <input type="text" id="startTime" value=""/> 
+                    </div>
+                    <div class="endtime">
+                      <span>End Time:</span>
+                      <input type="text" id="endTime" value=""/> 
+                    </div>
+            
+                  <button id="activate-step-2" class="btn btn-primary btn-lg signup-location">Enter Location</button>
+                </div>
+              </div>
+            </div>
+
+          
+        </div>
+      </div>
+
+    
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12 col-md-12">
+          <div class="col-md-10 col-md-offset-1 well text-center">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="name" id="name" class="form-control input-lg"
+                    placeholder="Full Name">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="email" id="email" class="form-control input-lg"
+                    placeholder="Email Address">
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="row">
+                <div class="col-xs-10 col-sm-10 col-md-10">
+                  <div class="form-group">
+                    <input type="text" name="address" id="address" class="form-control input-lg"
+                    placeholder="Street Address">
+                  </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <div class="form-group">
+                    <input type="text" name="apt_num" id="apt_num" class="form-control input-lg"
+                    placeholder="Apt.">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-10 col-sm-10 col-md-7">
+                  <div class="form-group">
+                    <input type="text" name="city" id="city" class="form-control input-lg"
+                    placeholder="City">
+                  </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <div class="form-group">
+                    <input type="text" name="state" id="state" class="form-control input-lg"
+                    placeholder="State">
+                  </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-3">
+                  <div class="form-group">
+                    <input type="text" name="zip" id="zip" class="form-control input-lg"
+                    placeholder="Zip Code">
+                  </div>
+                </div>
+              </div>
+
+              <hr class='divider'>
+
+
+              <div class="form-group">
+                <h4>How Many Children in your household?</h4>
+                <input type="text" name="state" id="state" class="form-control input-lg"
+                    placeholder="State">
+
+              </div>
+
+
+              <div class="form-group">
+                <h4>Age of the child</h4>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">SEC</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">FDIC</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">FAA</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">HUD</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+              </div>
+
+              <div class="form-group">
+                <h4>Add Special Requests</h4>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">SEC</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">FDIC</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">FAA</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="primary">HUD</button>
+                  <input type="checkbox" class="hidden"/>
+                </span>
+              </div>
+
+              
+              
+              <button id="activate-step-3" class="btn btn-primary btn-lg">See Available Sitters</button>
+            </div>
+       
+      </div>
+    </div>
+
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"> </h1>
+
+
+                <div class="form-group">
+                  <input type="text" name="topics" id="topics" class="form-control input-lg" placeholder="What topics do you care about?">
+                </div>
+              
+                <button id="activate-step-4" class="btn btn-primary btn-lg">Review</button>
+            </div>
+        </div>
+    </div> 
+    <div class="row setup-content" id="step-4">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"> </h1>
+
+                <div class="row">
+                <div class="col-xs-4 col-sm-3 col-md-3">
+                  <span class="button-checkbox pull-left">
+                    <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                    <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                  </span>
+                </div>
+                <div class="col-xs-8 col-sm-9 col-md-9 pull-left tnc">
+                   <h5 style="padding:5px;">By clicking <strong class="label label-primary">create account</strong>,
+                   you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our cookie Use.</h5>
+                </div>
+              </div>
+                <button id="complete-signup" class="btn btn-primary btn-lg">Peace of Mind</button>
+            </div>
+        </div>
+    </div> 
+  </div>
+
+
+
+
+
+
+
+         
+            <script type="text/javascript">
+              $(function(){
+                $('*[name=datepick]').appendDtpicker({
+                  "inline": true,
+                  "dateOnly": true,
+                  "dateFormat": "YYYY-MM-DD",
+                  "todayButton": false
+                });
+              });
+            </script>
+
+    
+              
+          
+     
+  </div>
+
+  </body>
+</html>
